@@ -25,19 +25,24 @@ function single_play(playerSelection,computerSelection){
           return(`Hey! Computer Defeated you!`);
     }
 } 
-
-function game(){
-    const playerSelection = prompt('Enter what your choice is among rock,paper or scissor');
-const computerSelection = getComputerChoice();
 let  player_scores=0;
 let comp_score=0;
-for(i=0;i<5;i++){
+
+
+function game(playerSelection,computerSelection){
+
     if(single_play(playerSelection, computerSelection)=='Hey! Computer Defeated you!'){
         comp_score++;
     }
     else if(single_play(playerSelection, computerSelection)=='Congz! You defeated AI'){
         player_scores++;  
     }
+
+}
+for(i=1;i<=5;i++){
+const playerSelection = prompt('Enter what your choice is among rock,paper or scissor');
+const computerSelection = getComputerChoice();
+game(playerSelection,computerSelection);
 }
 if(player_scores>comp_score){
     console.log(`You Defeated the AI With ${player_scores} and AI with ${comp_score}`);
@@ -45,5 +50,3 @@ if(player_scores>comp_score){
 else if(player_scores<comp_score){
     console.log(`AI Defeated you with ${comp_score} and You with ${player_scores}`);
 }
-}
-
